@@ -2,6 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/***
+ * The Snek class is essentially the class that holds the main game logic of this game
+ * things such as how to control the direction of the snake, how the snake moves
+ * how the snake is generated, and how it grows are all implemented within this
+ * class
+ */
+
+
 public class Snek : MonoBehaviour
 {
 
@@ -197,18 +205,12 @@ public class Snek : MonoBehaviour
                     {
 
                         doa = DOA.Dead;
-                      //situation.Show();
                         gamehandler.Snakedeath();
-                        Debug.Log("Dead");
                      }
                 }
 
                 transform.position = new Vector3(gridPosition.x, gridPosition.y);
                 transform.eulerAngles = new Vector3(0, 0, GetAngleFunction(gridMoveDirectionVector) - 90);
-
-                
-
-
             }
         }
 
@@ -291,8 +293,5 @@ public class Snek : MonoBehaviour
         {
             return gridPosition.GetGridPosition();
         }
-    }
-
-    
-         
+    }       
 }

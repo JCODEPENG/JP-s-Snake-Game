@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
+
 public static class GameLoader
 {
     public enum Scene
@@ -19,8 +22,6 @@ public static class GameLoader
     {
         loaderCallBackAction = () =>
         {
-
-
             SceneManager.LoadScene(Scene.Loading.ToString());
         };
 

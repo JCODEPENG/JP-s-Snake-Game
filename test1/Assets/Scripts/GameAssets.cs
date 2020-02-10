@@ -9,6 +9,8 @@ public class GameAssets : MonoBehaviour
     {
         instance = this;
     }
+
+    //place images for this on what you want your snake to look like 
     public Sprite snakeHeadSprite;
     public Sprite foodSprite;
     public Sprite snakebody;

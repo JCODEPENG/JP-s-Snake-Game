@@ -1,14 +1,14 @@
 ﻿<Properties StartupConfiguration="{FB112415-DF37-FFF0-193C-C41C1F943A0D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAssets.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameOverBtn.cs">
     <Files>
-      <File FileName="Assets/Scripts/GameAssets.cs" Line="14" Column="29" />
-      <File FileName="Assets/Scripts/Snek.cs" />
-      <File FileName="Assets/Scripts/gamehandler.cs" />
-      <File FileName="Assets/Scripts/GameLoader.cs" />
-      <File FileName="Assets/Scripts/GameOverBtn.cs" />
-      <File FileName="Assets/Scripts/MainMenuScrip.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/Pausemenu.cs" />
-      <File FileName="Assets/Scripts/QuitGame.cs" />
+      <File FileName="Assets/Scripts/GameAssets.cs" Line="13" Column="70" />
+      <File FileName="Assets/Scripts/Snek.cs" Line="10" Column="4" />
+      <File FileName="Assets/Scripts/gamehandler.cs" Line="12" Column="2" />
+      <File FileName="Assets/Scripts/GameLoader.cs" Line="7" Column="1" />
+      <File FileName="Assets/Scripts/GameOverBtn.cs" Line="45" Column="61" />
+      <File FileName="Assets/Scripts/MainMenuScrip.cs" Line="8" Column="28" />
+      <File FileName="Assets/Scripts/Pausemenu.cs" Line="27" Column="6" />
+      <File FileName="Assets/Scripts/QuitGame.cs" Line="8" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -16,7 +16,7 @@
           <Node name="test1" expanded="True">
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
-                <Node name="GameAssets.cs" selected="True" />
+                <Node name="GameOverBtn.cs" selected="True" />
               </Node>
             </Node>
           </Node>

@@ -2,6 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/***
+ * Class that controls spawning of the food randomly
+ * and also destroy the food if the snake eats it
+ * and function controls if player steps out of bounds
+ * and resets them
+ */
+
 
 public class LevelGrid
 {

@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+/****
+ * The main game handler class that controls and puts the game together
+ */
+
 public class gamehandler : MonoBehaviour
-
-
 {
-    /****
-     * The main game handler class that controls and puts the game together
-     */
-   
     [SerializeField] private Snek snek;
     private LevelGrid levelgrid;
     // Start is called before the first frame update

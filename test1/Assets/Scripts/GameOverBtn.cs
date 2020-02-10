@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/***
+ * Controls gameover screen
+ */
+
+
 public class GameOverBtn : MonoBehaviour
 {
     
     private static GameOverBtn instance;
-    GameObject btn;
+    GameObject resumebtn;
     GameObject quitbtn;
     bool flag;
     public void TakeinButton (string var)
@@ -36,24 +41,22 @@ public class GameOverBtn : MonoBehaviour
         instance.Show();
     }
     public void Start()
-    {
-        //Buttons for quiting and 
-        btn = GameObject.FindGameObjectWithTag("ShowBtn");
+    { 
+        resumebtn = GameObject.FindGameObjectWithTag("ResumeBtn");
         quitbtn = GameObject.FindGameObjectWithTag("QuitBtn");
         flag = false;
         instance = this;
     }
     public void Update()
     {
-        Debug.Log(flag);
         if (flag == false)
         {
-            btn.SetActive(false);
+            resumebtn.SetActive(false);
             quitbtn.SetActive(false);
         }
         else
         {
-            btn.SetActive(true);
+            resumebtn.SetActive(true);
             quitbtn.SetActive(true);
         }
 
