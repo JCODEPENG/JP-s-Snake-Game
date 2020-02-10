@@ -12,12 +12,7 @@ public class GameOverBtn : MonoBehaviour
     GameObject quitbtn;
     bool flag;
     public void TakeinButton (string var)
-    {
-        Debug.Log("Running?");
-       
-
-        //Scene scene = var;
-        
+    {  
         SceneManager.LoadScene(var);
         hide();
     }
@@ -42,6 +37,7 @@ public class GameOverBtn : MonoBehaviour
     }
     public void Start()
     {
+        //Buttons for quiting and 
         btn = GameObject.FindGameObjectWithTag("ShowBtn");
         quitbtn = GameObject.FindGameObjectWithTag("QuitBtn");
         flag = false;

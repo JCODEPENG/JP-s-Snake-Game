@@ -8,6 +8,7 @@ public static class GameLoader
 {
     public enum Scene
     {
+        //two states
         GameScene,
         Loading,
     }

@@ -30,6 +30,42 @@ public class Snek : MonoBehaviour
     private List<singleGridPos> snakepositionlist;
     private List<SnakeBodyPart> tranformsnakebody;
 
+    /***
+     * A private class for a snake, stores where the snakes previous direction, where the snake
+     * is now and its current direction
+     */
+    private class singleGridPos
+    {
+        private singleGridPos previousSnakeMove;
+        private Vector2Int GridPos;
+        private DIRECTION direction;
+
+        public singleGridPos(singleGridPos previousSnakeMove, Vector2Int GridPos, DIRECTION direction)
+        {
+            this.previousSnakeMove = previousSnakeMove;
+            this.GridPos = GridPos;
+            this.direction = direction;
+        }
+        public Vector2Int GetGridPosition()
+        {
+            return GridPos;
+        }
+        public DIRECTION GetDirection()
+        {
+            return direction;
+        }
+        public DIRECTION GetPrevDirection()
+        {
+            if (previousSnakeMove == null)
+            {
+                return DIRECTION.right;
+            }
+            else
+            {
+                return previousSnakeMove.direction;
+            }
+        }
+    }
 
 
     public void SetUP(LevelGrid levelGrid)
@@ -39,13 +75,17 @@ public class Snek : MonoBehaviour
 
     private void Awake()
     {
+        //time interval of each frame before snake is moved
         gridPosition = new Vector2Int(10, 10);
         gridmoveTimerMax = .3f;
         gridmoveTimer = gridmoveTimerMax;
+        //starts of facing right
         movedirection = DIRECTION.right;
 
+        //list of where the snake has been
         snakepositionlist = new List<singleGridPos>();
         snakebodysize = 0;
+        //list of the snakes bodies that will grow
         tranformsnakebody = new List<SnakeBodyPart>();
         doa = DOA.Alive;
 
@@ -54,6 +94,7 @@ public class Snek : MonoBehaviour
 
     private void Inputs()
     {
+        //controls
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             if (movedirection != DIRECTION.down)
@@ -85,6 +126,7 @@ public class Snek : MonoBehaviour
         }
     }
 
+    //to get the angle of the snake
     private float GetAngleFunction(Vector2Int dir)
     {
         float i = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
@@ -94,8 +136,6 @@ public class Snek : MonoBehaviour
 
         }
         return i;
-
-
     }
 
 
@@ -107,18 +147,20 @@ public class Snek : MonoBehaviour
             gridmoveTimer += Time.deltaTime;
             if (gridmoveTimer >= gridmoveTimerMax)
             {
+                //reset timer
                 gridmoveTimer = gridmoveTimer - gridmoveTimerMax;
 
+                //update snake position
                 singleGridPos previousSnakeMove = null;
                 if (snakepositionlist.Count > 0)
                 {
                     previousSnakeMove = snakepositionlist[0];
                 }
                 singleGridPos snakeMovePosition = new singleGridPos(previousSnakeMove, gridPosition, movedirection);
-
                 snakepositionlist.Insert(0, snakeMovePosition);
 
                 Vector2Int gridMoveDirectionVector;
+                //move the snake one spot forward from where it was 
                 switch (movedirection)
                 {
                     default:
@@ -132,14 +174,14 @@ public class Snek : MonoBehaviour
                 gridPosition = gridPosition + gridMoveDirectionVector;
 
                 gridPosition = levelGrid.validGridPos(gridPosition);
-
+                //grow the snake after eating
                 bool snakehaseaten = levelGrid.SnakeMoves(gridPosition);
                 if (snakehaseaten)
                 {
                     snakebodysize++;
                     CreateSnakeBodyPart();
                 }
-
+                
                 if (snakepositionlist.Count >= snakebodysize + 1)
                 {
                     snakepositionlist.RemoveAt(snakepositionlist.Count - 1);
@@ -147,6 +189,7 @@ public class Snek : MonoBehaviour
 
                 UpdateSnakeBodyParts();
 
+                //Death scenario if snake eats snake
                 foreach (SnakeBodyPart snakebodypart in tranformsnakebody)
                 {
                     Vector2Int snakebodypartgridpos = snakebodypart.GetGridPosition();
@@ -179,7 +222,7 @@ public class Snek : MonoBehaviour
         return gridPosition;
     }
 
-    // Return the full list of positions occupied by the snake: Head + Body
+    // Return the full list of positions occupied by the snake
     public List<Vector2Int> GetFullSnakeGridPositionList()
     {
         List<Vector2Int> gridPositionList = new List<Vector2Int>() { gridPosition };
@@ -193,6 +236,7 @@ public class Snek : MonoBehaviour
        tranformsnakebody.Add(new SnakeBodyPart(tranformsnakebody.Count));
     }
 
+    
     private void UpdateSnakeBodyParts()
     {
         for (int i = 0; i < tranformsnakebody.Count; i++)
@@ -203,12 +247,13 @@ public class Snek : MonoBehaviour
 
     private class SnakeBodyPart
     {
-
+        
         private singleGridPos gridPosition;
         private Transform transform;
 
         public SnakeBodyPart(int bodyIndex)
         {
+            //initializing the list of snake body parts 
             GameObject snakeBodyGameObject = new GameObject("SnakeBody", typeof(SpriteRenderer));
             snakeBodyGameObject.GetComponent<SpriteRenderer>().sprite = GameAssets.instance.snakebody;
             snakeBodyGameObject.GetComponent<SpriteRenderer>().sortingOrder = -1 - bodyIndex;
@@ -217,6 +262,8 @@ public class Snek : MonoBehaviour
 
         public void SetGridPosition(singleGridPos gridPosition)
         {
+            //Assuming which direction the head and body is
+            //Add the new body to add 
             this.gridPosition = gridPosition;
             transform.position = new Vector3(gridPosition.GetGridPosition().x, gridPosition.GetGridPosition().y);
             float angle;
@@ -246,36 +293,6 @@ public class Snek : MonoBehaviour
         }
     }
 
-    private class singleGridPos{
-        private singleGridPos previousSnakeMove;
-        private Vector2Int GridPos;
-        private DIRECTION direction;
-
-        public singleGridPos(singleGridPos previousSnakeMove, Vector2Int GridPos, DIRECTION direction)
-        {
-            this.previousSnakeMove = previousSnakeMove;
-            this.GridPos = GridPos;
-            this.direction = direction;
-        }
-        public Vector2Int GetGridPosition()
-        {
-            return GridPos;
-        }
-        public DIRECTION GetDirection()
-        {
-            return direction;
-        }
-        public DIRECTION GetPrevDirection()
-        {
-            if (previousSnakeMove == null)
-            {
-                return DIRECTION.right;
-            }
-            else
-            {
-                return previousSnakeMove.direction;
-            } 
-        }
-    }
+    
          
 }

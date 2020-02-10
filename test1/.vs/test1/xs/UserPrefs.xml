@@ -1,19 +1,37 @@
 ﻿<Properties StartupConfiguration="{FB112415-DF37-FFF0-193C-C41C1F943A0D}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/MainMenuScrip.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/GameAssets.cs">
     <Files>
       <File FileName="Assets/Scripts/GameAssets.cs" Line="14" Column="29" />
-      <File FileName="Assets/Scripts/Snek.cs" Line="158" Column="25" />
-      <File FileName="Assets/Scripts/gamehandler.cs" Line="13" Column="15" />
-      <File FileName="Assets/Scripts/GameLoader.cs" Line="24" Column="11" />
-      <File FileName="Assets/Scripts/GameOverBtn.cs" Line="61" Column="37" />
+      <File FileName="Assets/Scripts/Snek.cs" />
+      <File FileName="Assets/Scripts/gamehandler.cs" />
+      <File FileName="Assets/Scripts/GameLoader.cs" />
+      <File FileName="Assets/Scripts/GameOverBtn.cs" />
       <File FileName="Assets/Scripts/MainMenuScrip.cs" Line="5" Column="1" />
-      <File FileName="Assets/Scripts/Pausemenu.cs" Line="15" Column="37" />
-      <File FileName="Assets/Scripts/QuitGame.cs" Line="9" Column="38" />
+      <File FileName="Assets/Scripts/Pausemenu.cs" />
+      <File FileName="Assets/Scripts/QuitGame.cs" />
     </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="test1" expanded="True">
+            <Node name="Assets" expanded="True">
+              <Node name="Scripts" expanded="True">
+                <Node name="GameAssets.cs" selected="True" />
+              </Node>
+            </Node>
+          </Node>
+        </State>
+      </Pad>
+      <Pad Id="MonoDevelop.UnitTesting.TestPad">
+        <State name="__root__">
+          <Node name="test1" expanded="True" selected="True" />
+        </State>
+      </Pad>
+    </Pads>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="14d86c36-31ad-4711-81b5-9c05a744f026" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
