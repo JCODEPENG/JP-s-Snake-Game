@@ -1585,7 +1585,7 @@ GameObject:
   - component: {fileID: 1869813540}
   m_Layer: 0
   m_Name: Button (1)
-  m_TagString: ShowBtn
+  m_TagString: ResumeBtn
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

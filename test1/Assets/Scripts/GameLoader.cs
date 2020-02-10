@@ -4,10 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
+
+
+
 public static class GameLoader
 {
     public enum Scene
     {
+        //two states
         GameScene,
         Loading,
     }
@@ -18,8 +22,6 @@ public static class GameLoader
     {
         loaderCallBackAction = () =>
         {
-
-
             SceneManager.LoadScene(Scene.Loading.ToString());
         };
 

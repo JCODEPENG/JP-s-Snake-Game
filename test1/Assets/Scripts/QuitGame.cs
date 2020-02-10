@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/***
+ * Class to quit the game
+ */
+
 public class QuitGame : MonoBehaviour
 {
     public void quitgame()

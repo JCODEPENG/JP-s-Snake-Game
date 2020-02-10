@@ -3,8 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
-public class MainMenuScrip : MonoBehaviour
+/***
+ * The main menu class just holds the main menu screen that is imported
+ * from the editor in Unity
+ */
+public class MainMenuScript : MonoBehaviour
 {
 
     public void btnstart(string var)
@@ -13,5 +16,5 @@ public class MainMenuScrip : MonoBehaviour
         SceneManager.LoadScene(var);
 
     }
-    //Scene 
+   
 }
